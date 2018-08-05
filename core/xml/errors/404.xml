@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>404 | Oh No!</title>
+	<content>
+		<group>base</group>
+		<file>404</file>
+		<type>html</type>
+	</content>
+</page>

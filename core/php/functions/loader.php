@@ -1,6 +1,14 @@
 <?php 
 $realpath = realpath(__DIR__);
 $directory = array_diff(scandir($realpath), array('..', '.'));
+if(is_dir("../../local/"))
+{
+	if(is_dir("../../local/php/"))
+	{
+		$addLocalDir = array_diff(scandir("../../local/php/"), array('..','.'));
+		$director = array_merge($directory, $addLocalDir);
+	}
+}
 foreach($directory as $dir)
 {
 	$dirname = $realpath."/".$dir;
@@ -17,9 +25,20 @@ foreach($directory as $dir)
 			{
 				continue;
 			}
-			$subDirName = $realpath."/".$dir."/".$subDir;
-			require_once($subDirName);
 			$className = explode(".", $subDir)[0];
+			if(isset($$className))
+			{
+				//class already loaded
+				continue;
+			}
+			$subDirName = $realpath."/".$dir."/".$subDir;
+			$subDirNameLocal = str_replace("core", "local", $subDirName);
+			if(file_exists($subDirNameLocal))
+			{
+				//override core file with local file
+				$subDirName = $subDirNameLocal;
+			}
+			require_once($subDirName);
 			$$className = new $className();
 		}
 	}

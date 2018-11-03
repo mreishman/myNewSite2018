@@ -1,0 +1,26 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #CCC;
+  background-color: #444;
+  margin: 0;
+}
+
+footer {
+  background-color: #222;
+  padding: 3px 10px;
+}
+
+header {
+  background-color: #CCC;
+}
+
+a {
+  color: #CCC;
+}
+
+.mainContent {
+  min-height: 500px;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=base.css.map */

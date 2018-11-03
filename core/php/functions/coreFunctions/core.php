@@ -15,6 +15,20 @@ class core
 		return $default;
 	}
 
+	private function getFileWeb($fileLookFor, $default = false)
+	{
+		$currentDir = realpath(__DIR__ . '/../../../..')."/";
+		if(file_exists($currentDir."local/".$fileLookFor))
+		{
+			return "local/".$fileLookFor;
+		}
+		if(file_exists($currentDir."core/".$fileLookFor))
+		{
+			return "core/".$fileLookFor;
+		}
+		return $default;
+	}
+
 	public function loadDirFilesRec($directory, $arrayOfFiles = array(), $addedDir = "")
 	{
 		$fileList = array_diff(scandir($directory), array('..', '.'));
@@ -38,7 +52,30 @@ class core
 
 	public function getContent($layoutFileGen)
 	{
+		//js files
+
+		//css files
+		$listOfCssFiles = $this->generateCssLinks($layoutFileGen);
+		foreach ($listOfCssFiles as $filePath) {
+			echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/".$filePath."\">";
+		}
+		//return main file path
 		return $this->getFile("content/".$layoutFileGen->content->group."/".$layoutFileGen->content->file.".".$layoutFileGen->content->type);
+	}
+
+	public function generateCssLinks($layoutFileGen)
+	{
+		$arrayOfCssFiles = array();
+		$listOfCssFiles = $layoutFileGen->cssFiles;
+		if(count($listOfCssFiles) > 0)
+		{
+			foreach ($listOfCssFiles[0] as $outer)
+			{
+				$filePath = $this->getFileWeb("css/".$outer->group.$outer->file);
+				array_push($arrayOfCssFiles, $filePath);
+			}
+		}
+		return $arrayOfCssFiles;
 	}
 
 	public function getXml($page, $default = false)

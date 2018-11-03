@@ -2,6 +2,14 @@
 
 class header
 {
+
+	private $core;
+
+	public function __construct()
+	{
+		$this->core = new Core();
+	}
+
 	private function generateFileTier($newKeyArray, $fileTierInfo)
 	{
 		$newKey = $newKeyArray[0];
@@ -46,20 +54,18 @@ class header
 	public function generateNavigationArray()
 	{
 		$currentDir = realpath(__DIR__ . '/../../../..')."/";
-		$core = new Core();
 		$xmlDir = $currentDir."core/xml/content/";
 		if(is_dir($currentDir."local/xml/content/"))
 		{
 			$xmlDir = $currentDir."local/xml/content/";
 		}
-		$arrayOfFiles = $core->loadDirFilesRec($xmlDir);
+		$arrayOfFiles = $this->core->loadDirFilesRec($xmlDir);
 		foreach ($arrayOfFiles as $currentFileKey => $currentFile)
 		{
 			$xmlLayout = simplexml_load_file($currentFileKey);
 			$arrayOfFiles[$currentFileKey]["position"] = intval($xmlLayout->menu->position);
 			$arrayOfFiles[$currentFileKey]["name"] = (string)$xmlLayout->menu->name;
 			$arrayOfFiles[$currentFileKey]["key"] = (string)$xmlLayout->menu->key;
-			$arrayOfFiles[$currentFileKey]["content"] = (bool)$xmlLayout->content->file;
 		}
 		$newNavArray = array();
 		foreach ($arrayOfFiles as $AOFvalue)
@@ -92,15 +98,12 @@ class header
 			{
 				if(!empty($value["files"]))
 				{
-					$htmlToReturn .= "<li>".$value["name"].$this->generateNavUl($value["files"])."</li>";
+					$htmlToReturn .= "<li><a href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\" >".$value["name"]."</a>".$this->generateNavUl($value["files"])."</li>";
 				}
 			}
 			else
 			{
-				if($value["content"])
-				{
-					$htmlToReturn .= "<li>".$value["name"]."</li>";
-				}
+				$htmlToReturn .= "<li><a href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\" >".$value["name"]."</a></li>";
 			}
 		}
 		$htmlToReturn .= "</ul>";

@@ -1,0 +1,56 @@
+.navigationMain {
+  margin-bottom: 5px;
+}
+.navigationMain ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navigationMain li {
+  float: left;
+  padding: 12px 16px;
+}
+.navigationMain li a {
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #333;
+}
+.navigationMain li a:hover, .navigationMain li .dropdown:hover .dropbtn {
+  background-color: #444;
+  color: #CCC;
+}
+.navigationMain li.dropdown {
+  display: inline-block;
+}
+.navigationMain li ul {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 12px;
+  background-color: #CCC;
+}
+.navigationMain li ul li {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+.navigationMain li ul li:hover {
+  background-color: #444;
+}
+.navigationMain li ul li:hover a {
+  color: #CCC;
+}
+.navigationMain li ul a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.navigationMain li:hover ul {
+  display: block;
+}
+
+/*# sourceMappingURL=navigation.css.map */

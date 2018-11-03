@@ -1,0 +1,26 @@
+@import "vars.scss";
+
+body {
+  font: 100% $fontStack;
+  color: $fontColorMain;
+  background-color: $backgroundColorMain;
+  margin: 0;
+}
+
+footer {
+	background-color: $backgroundColorMain2;
+	padding: 3px 10px;
+}
+
+header {
+	background-color: $backgroundColorAlt;
+}
+
+a {
+	color: $fontColorMain;
+}
+
+.mainContent {
+	min-height: 500px;
+	padding: 10px;
+}

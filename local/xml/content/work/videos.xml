@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Videos</title>
+	<menu>
+		<position>2</position>
+		<name>Videos</name>
+		<key>Videos</key>
+	</menu>
+	<content>
+		<group>work</group>
+		<file>videos</file>
+		<type>php</type>
+	</content>
+</page>

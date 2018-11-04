@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Social</title>
+	<menu>
+		<position>1</position>
+		<name>Social Media</name>
+		<key>social</key>
+	</menu>
+	<content>
+		<group>about</group>
+		<file>social</file>
+		<type>php</type>
+	</content>
+</page>

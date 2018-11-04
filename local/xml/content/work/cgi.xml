@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>CGI</title>
+	<menu>
+		<position>2</position>
+		<name>CGI</name>
+		<key>CGI</key>
+	</menu>
+	<content>
+		<group>work</group>
+		<file>cgi</file>
+		<type>php</type>
+	</content>
+</page>

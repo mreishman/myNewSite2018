@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Web Apps</title>
+	<menu>
+		<position>2</position>
+		<name>Web Apps</name>
+		<key>Web Apps</key>
+	</menu>
+	<content>
+		<group>work</group>
+		<file>webApps</file>
+		<type>php</type>
+	</content>
+</page>

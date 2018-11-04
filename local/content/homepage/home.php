@@ -7,20 +7,17 @@
 	</div>
 	<div></div>
 	<div align="center" >
-		<div style="background-color: red; " class="category-buttons">
+		<div style="background-color: red; " class="category-buttons bg-image-cgi">
+			CGI
 		</div>
-		<div style="background-color: green;" class="category-buttons">
+		<div style="background-color: green;" class="category-buttons bg-image-cgi">
+			Web Apps
 		</div>
-		<div style="background-color: blue; " class="category-buttons">
-		</div><div style="background-color: red" class="category-buttons">
+		<div style="background-color: blue; " class="category-buttons bg-image-cgi">
+			Videos
 		</div>
-		<div style="background-color: green;" class="category-buttons">
-		</div>
-		<div style="background-color: blue; " class="category-buttons">
-		</div>
-		<div style="background-color: red; " class="category-buttons">
-		</div>
-		<div style="background-color: green;" class="category-buttons">
+		<div style="background-color: red" class="category-buttons bg-image-cgi">
+			Websites
 		</div>
 	</div>
 </div>
@@ -31,6 +28,16 @@
 		width: 350px;
 		display: inline-block;
 		margin: 2%;
+		line-height: 200px;
+		font-size: 150%;
+	}
+
+	.bg-image-cgi {
+		background-image: linear-gradient(rgba(25, 25, 25, 0.5), rgba(0, 0, 0, 0.5)), url("media/img/home/main_banner.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
 	}
 
 	.hero-image {

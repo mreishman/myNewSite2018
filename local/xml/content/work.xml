@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Work</title>
+	<menu>
+		<position>3</position>
+		<name>Work</name>
+		<key>work</key>
+	</menu>
+	<content>
+		<group>work</group>
+		<file>work</file>
+		<type>php</type>
+	</content>
+</page>

@@ -109,4 +109,9 @@ class header
 		$htmlToReturn .= "</ul>";
 		return $htmlToReturn;
 	}
+
+	public function addLogoImage()
+	{
+		return "<img src=\"media/img/main/logo.png\" height=\"42px\" style=\"display: inline-block;\" >";
+	}
 }

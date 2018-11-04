@@ -1,3 +1,11 @@
+#mainNavigationToggle {
+  display: none;
+}
+
+.navigationSpan {
+  display: inline-block;
+}
+
 .navigationMain {
   margin-bottom: 5px;
 }
@@ -51,6 +59,117 @@
 }
 .navigationMain li:hover ul {
   display: block;
+}
+
+.icon-bar-top {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+  -ms-transform: rotate(-45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-45deg);
+  margin-top: 9px;
+}
+
+.icon-bar-mid {
+  display: none;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+}
+
+.icon-bar-bot {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+}
+
+.mobileNavButton {
+  cursor: pointer;
+  display: none;
+  float: right;
+}
+
+.navIconChecked {
+  display: none;
+}
+
+.navIconNotChecked {
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  .navigationSpan {
+    display: block;
+  }
+
+  .navigationMain li {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 0;
+    float: none;
+  }
+  .navigationMain li a {
+    display: block;
+  }
+  .navigationMain li ul {
+    display: block;
+    position: relative;
+  }
+  .navigationMain li ul li {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0;
+    float: none;
+  }
+
+  .mobileNavButton {
+    display: inline-block;
+    margin: 8px 8px 15px 8px;
+  }
+
+  .navIconChecked {
+    display: none;
+  }
+
+  .navIconNotChecked {
+    display: inline-block;
+  }
+
+  #mainNavigationToggle:checked ~ .mobileNavButton .navIconChecked {
+    display: inline-block;
+  }
+  #mainNavigationToggle:checked ~ .mobileNavButton .navIconNotChecked {
+    display: none;
+  }
+  #mainNavigationToggle:checked ~ .navigationSpan {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=navigation.css.map */

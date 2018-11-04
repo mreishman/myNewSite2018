@@ -1,6 +1,6 @@
 <header>
 	<nav class="navigationMain" >
-		<?php echo $header->addLogoImage(); ?>
+		<img src="/media/img/main/logo.png" height="42px" style="display: inline-block;" >
 		<input type="checkbox" id="mainNavigationToggle" checked>
 		<label for="mainNavigationToggle" class="mobileNavButton">
 			<span class="navIconChecked">

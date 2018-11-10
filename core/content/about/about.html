@@ -1,0 +1,61 @@
+<h1>Some Info About WebCoreMR</h1>
+<br>
+<br>
+<div style="display: inline-block; width: 100%;">
+	<img class="desktopImg" align="right" width="300px" src="/media/img/about/filestructure.png">
+	<h3>Page Structure:</h3>
+	<p>All of the pages are defined in the xml content folder, with required and optional variables. Required variables include layout, title, and content. The current optional variable is for the menu position.</p>
+	<xmp>
+		<page>
+		<layout>oneColumn</layout>
+		<title>About!</title>
+		<menu>
+			<position>2</position>
+			<name>About</name>
+			<key>about</key>
+		</menu>
+		<content>
+			<group>about</group>
+			<file>about</file>
+			<type>html</type>
+		</content>
+		</page>
+	</xmp>
+	<h3>Navigation:</h3>
+	<p>The navigation bar is generated from the xml content folder, and the menu variable within those xml files.  The menu block specifying position, name and key (prevent duplicate position errors). Grouping of links is defined by the folder structure.</p>
+	<xmp>
+		<menu>
+			<position>2</position>
+			<name>About</name>
+			<key>about</key>
+		</menu>
+	</xmp>
+	<h3>CSS & JS</h3>
+	<p>All of the css and js are linked to the pages through xml. These can be added overall (in layout pages) or on a page by page basis (specific files for home, about, etc.).</p>
+	<xmp>
+		<cssFiles>
+			<cssFile>
+				<file>base.css</file>
+				<map>base.css.map</map>
+				<group></group>
+			</cssFile>
+			<cssFile>
+				<file>navigation.css</file>
+				<map>navigation.css.map</map>
+				<group></group>
+			</cssFile>
+		</cssFiles>
+	</xmp>
+</page>
+</div>
+<style type="text/css">
+	xmp {
+		background-color: #000000;
+	}
+
+	@media only screen and (max-width: 700px) {
+		.desktopImg{
+			display: none;
+		}
+	}
+</style>

@@ -6,386 +6,146 @@
 			<th width="120"><h2>Date of change</h2></th>
 			<th ><h2>Notes</h2></th>
 		</tr>
-      
-      
-      
-      <tr>
-        	<th> 2.2.6.4</th>
-            <th> 4/8/2017 </th>
+
+      <?php
+      $changelogArr = array(
+        1  =>  array(
+            "version"       =>  "1.0",
+            "date"          =>  "1/13/2014",
+            "notes"         =>  array(
+                "Features"      =>  array("Inital Upload","Home page","About page","Art page")
+            )
+        ),
+        2  =>  array(
+            "version"       =>  "1.0.1",
+            "date"          =>  "1/20/2014",
+            "notes"         =>  array(
+                "Features"      =>  array("Improved links on about page"),
+                "Bug Fixes"     =>  array("Improved scroll bars on art page","Increased size of drop down menu (when viewing the site on smaller screens or mobile phones)","Fixed issue with Bebas font not displaying correctly on some pages")
+            )
+        ),
+        3  =>  array(
+            "version"       =>  "2.0",
+            "date"          =>  "12/22/2015",
+            "notes"         =>  array(
+                "Features"      =>  array("Update theme of website","Added improved mobile navigation ","Changed visual layout of pages (Home, About, Art) ","Added pages (social, work, animations, website, work in progress")
+            )
+        ),
+        4  =>  array(
+            "version"       =>  "2.0.1",
+            "date"          =>  "12/23/2015",
+            "notes"         =>  array(
+                "Features"      =>  array("Added favicon"),
+                "Bug Fixes"     =>  array("Fixed case sensitive issues on links to pages and objects","Fixed misc. broken links")
+            )
+        ),
+        5  =>  array(
+            "version"       =>  "2.0.2",
+            "date"          =>  "12/24/2015",
+            "notes"         =>  array(
+                "Mobile Bug Fixes"     =>  array("Fixed double logo in nav bar at top","Fixed spacing issues on mobile side nav bar","Fixed padding for buttons on side nav bar")
+            )
+        ),
+        6  =>  array(
+            "version"       =>  "2.1",
+            "date"          =>  "7/12/2016",
+            "notes"         =>  array(
+                "Features"      =>  array("Added two new pages (Videos and Apps)"),
+                "Bug Fixes"     =>  array("Fixed issues with links on some sub menu bars.")
+            )
+        ),
+        7  =>  array(
+            "version"       =>  "2.2",
+            "date"          =>  "7/20/2016",
+            "notes"         =>  array(
+                "Features"      =>  array("Updated the look of the showcase pages to a slightly new look","Changed the background color to a lighter shade of grey","Update the mobile look of the Work page")
+            )
+        ),
+        8  =>  array(
+            "version"       =>  "2.2.1",
+            "date"          =>  "10/20/2016",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Updated header info for some pages","Updated links to some pages")
+            )
+        ),
+        9  =>  array(
+            "version"       =>  "2.2.2",
+            "date"          =>  "1/22/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Fixed font size issues on mobile","Fixed issues with mobile bar size")
+            )
+        ),
+        10  =>  array(
+            "version"       =>  "2.2.3",
+            "date"          =>  "2/5/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Hides logo text in main nav bar at some resolutions","Updated logo text on index for small width desktop viewing")
+            )
+        ),
+        11  =>  array(
+            "version"       =>  "2.2.4",
+            "date"          =>  "2/7/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Adjusted on hover in nav bar to slightly change color of background")
+            )
+        ),
+        12  =>  array(
+            "version"       =>  "2.2.5",
+            "date"          =>  "3/2/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Updated social media page")
+            )
+        ),
+        13  =>  array(
+            "version"       =>  "2.2.6",
+            "date"          =>  "3/5/2017",
+            "notes"         =>  array(
+                "Features"      =>  array("Added link to github issues on feedback bar"),
+                "Bug Fixes"     =>  array("Cursor pointer changes to pointer when hovering over feedback bar link")
+            )
+        ),
+        14  =>  array(
+            "version"       =>  "2.2.6.2",
+            "date"          =>  "3/5/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Added fade on hover for social media pictures")
+            )
+        ),
+        15  =>  array(
+            "version"       =>  "2.2.6.4",
+            "date"          =>  "3/5/2017",
+            "notes"         =>  array(
+                "Bug Fixes"     =>  array("Fixed some links on mobile nav bar")
+            )
+        ),
+        16  =>  array(
+            "version"       =>  "3.0",
+            "date"          =>  "11/11/2018",
+            "notes"         =>  array(
+                "Features"      =>  array("Switched code base from just using html to using php and xml","Changed up theme","Redesigned nav bar","Redesigned most pages")
+            )
+        )
+      );
+      $odd = false;
+      $changelogArr = array_reverse($changelogArr);
+      foreach ($changelogArr as $key => $value): 
+        $odd = !$odd;?>
+        <tr <?php if($odd){ echo "bgcolor=\"#333333\""; }?> >
+            <th><?php echo $value["version"]; ?></th>
+            <th><?php echo $value["date"]; ?></th>
             <th align="left">
-			
-                    
-               <h3 align="center">Bug Fixes</h3>
-                <ul>
-                	<li>
-                    Fixed some links on mobile nav bar
-                    </li>
-                </ul> 
-                
-            </th>
-        </tr> 
-      
-      
-       <tr bgcolor="#333333">
-        	<th> 2.2.6.2</th>
-            <th> 3/5/2017 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">Stuff</h3>
-                <ul>
-                	<li>
-                    Added fade on hover for social media pictures
-                    </li>
-                </ul> 
-                
-            </th>
-        </tr> 
-      
-      
-      
-      
-       <tr>
-        	<th> 2.2.6</th>
-            <th> 3/5/2017 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">Features</h3>
-                <ul>
-                	<li>
-                    Added link to github issues on feedback bar
-                    </li>
-                </ul> 
-                
-                <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Cursor pointer changes to pointer when hovering over feedback bar link
-                    </li>
-                </ul> 
-            </th>
-        </tr> 
-      
-      
-      
-      
-      
-       <tr bgcolor="#333333">
-        	<th> 2.2.5</th>
-            <th> 3/2/2017 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">Stuff</h3>
-                <ul>
-                	<li>
-                    Updated social media page
-                    </li>
-                </ul> 
-            </th>
-        </tr> 
-        
-      
-       <tr>
-        	<th> 2.2.4</th>
-            <th> 2/7/2017 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Adjusted on hover in nav bar to slightly change color of background
-                    </li>
-                </ul> 
-            </th>
-        </tr> 
-      
-      
-      
-      <tr bgcolor="#333333">
-        	<th> 2.2.3</th>
-            <th> 2/5/2017 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Hides logo text in main nav bar at some resolutions
-                    </li>
-					<li>
-					Updated logo text on index for small width desktop viewing
-					</li>
-                </ul> 
-            </th>
-        </tr> 
-       
-        <tr>
-        	<th> 2.2.2</th>
-            <th> 1/22/2017 </th>
-            <th align="left">
-			<!-- 
-           <h3 align="center"> features </h3>
-            	 <ul>
-                	<li>
-                    Updated the look of the showcase pages to a slightly new look
+                <?php foreach ($value["notes"] as $key2 => $value2): ?>
+                    <h3 align="center"><?php echo $key2; ?></h3>
                     <ul>
-                    	<li>
-                        Update to the fonts and spacing
-                        </li>
-                    </ul>
-                    </li>
-                    
-                   
-                    <li>
-                   	Changed the background color to a lighter shade of grey
-                    </li>
-                    <li>
-                   	Update the mobile look of the Work page
-                    </li>
-                    </ul> 
-                    -->
-                    
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Fixed font size issues on mobile
-                    </li>
-					<li>
-					Fixed issues with mobile bar size
-					</li>
-                </ul> 
-            </th>
-        </tr> 
-       
-	    <tr bgcolor="#333333">
-        	<th> 2.2.1</th>
-            <th> 10/20/2016 </th>
-            <th align="left">
-			
-                    
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Updated header info for some pages
-                    </li>
-					<li>
-					Updated links to some pages
-					</li>
-                </ul> 
-            </th>
-        </tr> 
-	   
-	   
-	   
-	   
-          <tr>
-        	<th> 2.2.0</th>
-            <th> 7/20/2016 </th>
-            <th align="left">
-           <h3 align="center"> features </h3>
-            	 <ul>
-                	<li>
-                    Updated the look of the showcase pages to a slightly new look
-                    <ul>
-                    	<li>
-                        Update to the fonts and spacing
-                        </li>
-                    </ul>
-                    </li>
-                    
-                   
-                    <li>
-                   	Changed the background color to a lighter shade of grey
-                    </li>
-                    <li>
-                   	Update the mobile look of the Work page
-                    </li>
-                    </ul> 
-					
-            </th>
-        </tr> 
-         <tr bgcolor="#333333">
-        	<th> 2.1.0</th>
-            <th> 7/12/2016 </th>
-            <th align="left">
-           <h3 align="center"> features </h3>
-            	 <ul>
-                	<li>
-                    Added two new pages (Videos and Apps)
-                    </li>
-                    
-                    </ul> 
-                    
-                   
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Fixed issues with links on some sub menu bars.
-                    </li>
-                    </ul> 
-            </th>
-        </tr>
-         <tr>
-        	<th> 2.0.2</th>
-            <th> 12/24/2015 </th>
-            <th align="left">
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Fixed mobile specific issues.
-                    	<ul>
-                        	<li>
-                            Fixed double logo in nav bar at top
-                            </li>
+                        <?php foreach ($value2 as $value3): ?>
                             <li>
-                            Fixed spacing issues on mobile side nav bar
+                                <?php echo $value3; ?>
                             </li>
-                            <li>
-                            Fixed padding for buttons on side nav bar
-                            </li>
-                       </ul>
-                    </li>
-                    </ul>
-            </th>
-        </tr>
-           <tr bgcolor="#333333">
-        	<th> 2.0.1</th>
-            <th> 12/23/2015 </th>
-            <th align="left">
-           <h3 align="center"> features </h3>
-            	<ul>
-                	<li>
-                    Added icon to tabs in browsers
-                    </li>
-                    
+                        <?php endforeach; ?>
                     </ul> 
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Fixed case sensitive issues on links to pages and objects
-                    </li>
-                    <li>
-                    Fixed misc. broken links
-                    </li>
-                    </ul>
+                <?php endforeach; ?>
             </th>
-        </tr>
-        <tr>
-        	<th> 2.0.0</th>
-            <th> 12/22/2015 </th>
-            <th align="left">
-            <h3 align="center"> features </h3>
-            	<ul>
-                	<li>
-                    Update theme of website
-                    </li>
-                    <li>
-                    Added improved mobile navigation 
-                    </li>
-                	<li>
-                    Changed visual layout of pages
-                    <ul>
-                    <li>
-                    Home 
-                    </li>
-                    <li>
-                    About 
-                    </li>
-                    <li>
-                    Art (Pictures) 
-                    </li>
-                    </ul>
-                    </li>
-                    <li>
-                    Added pages
-                    <ul>
-                    <li>
-                    Social 
-                    </li>
-                    <li>
-                    Work 
-                    </li>
-                    <li>
-                    Animations 
-                    </li>
-                    <li>
-                    Websites 
-                    </li>
-                    <li>
-                    W.I.P. 
-                    </li>
-                    </ul>
-                    </li>
-                    
-                    </ul>
-
-            </th>
-        </tr>
-          <tr bgcolor="#333333">
-        	<th> 1.0.1</th>
-            <th> 1/20/2014 </th>
-            <th align="left">
-            <h3 align="center"> features </h3>
-            	<ul>
-                	<li>
-                    Improved links on about page
-                    </li>
-                    
-                    </ul>
-               <h3 align="center">bug fixes</h3>
-                <ul>
-                	<li>
-                    Improved scroll bars on art page
-                    </li>
-                    <li>
-                    Increased size of drop down menu (when viewing the site on smaller screens or mobile phones)
-                    </li>
-                    <li>
-                    Fixed issue with Bebas font not displaying correctly on some pages
-                    </li>
-                    </ul>
-            </th>
-        </tr>
-        <tr>
-        	<th> 1.0.0</th>
-            <th> 1/13/2014 </th>
-            <th align="left">
-            <h3 align="center"> features </h3>
-            	<ul>
-                	<li>
-                    Inital Upload
-                    <ul>
-                    <li>
-                    Home page
-                    </li>
-                    <li>
-                    About page
-                    </li>
-                    <li>
-                    Art page
-                    </li>
-                    </ul>
-                    </li>
-                    
-                    </ul>
-               <!-- <h3 id="text-center"> bug fixes </h3>
-                <ul>
-                	<li>
-                   -
-                    </li>
-                    </ul> -->
-            </th>
-        </tr>
+        </tr> 
+      <?php endforeach; ?>
 </table>
-
-<table>
-<tr height="70px;">
-<th>
-</th>
-</tr>
-</table>
-
 </div>

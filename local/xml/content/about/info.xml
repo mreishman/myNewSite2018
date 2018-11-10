@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
 	<layout>oneColumn</layout>
-	<title>Info</title>
+	<title>Changelog</title>
 	<content>
 		<group>about</group>
 		<file>info</file>

@@ -53,7 +53,10 @@ class core
 	public function getContent($layoutFileGen)
 	{
 		//js files
-
+		$listOfJsFiles = $this->generateCssLinks($layoutFileGen);
+		foreach ($listOfJsFiles as $filePath) {
+			echo "<script type=\"text/javascript\" src=\"".$filePath."\"></script>";
+		}
 		//css files
 		$listOfCssFiles = $this->generateCssLinks($layoutFileGen);
 		foreach ($listOfCssFiles as $filePath) {
@@ -76,6 +79,21 @@ class core
 			}
 		}
 		return $arrayOfCssFiles;
+	}
+
+	public function generateJsLinks($layoutFileGen)
+	{
+		$arrayOfJsFiles = array();
+		$listOfJsFiles = $layoutFileGen->jsFiles;
+		if(count($listOfJsFiles) > 0)
+		{
+			foreach ($listOfJsFiles[0] as $outer)
+			{
+				$filePath = $this->getFileWeb("js/".$outer->group.$outer->file);
+				array_push($arrayOfJsFiles, $filePath);
+			}
+		}
+		return $arrayOfJsFiles;
 	}
 
 	public function getXml($page, $default = false)

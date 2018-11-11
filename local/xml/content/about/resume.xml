@@ -10,6 +10,6 @@
 	<content>
 		<group>about</group>
 		<file>resume</file>
-		<type>php</type>
+		<type>html</type>
 	</content>
 </page>

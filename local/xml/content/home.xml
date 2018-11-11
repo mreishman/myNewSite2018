@@ -10,6 +10,6 @@
 	<content>
 		<group>homepage</group>
 		<file>home</file>
-		<type>php</type>
+		<type>html</type>
 	</content>
 </page>

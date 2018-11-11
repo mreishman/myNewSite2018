@@ -7,18 +7,26 @@
 	</div>
 	<div></div>
 	<div align="center" >
-		<div style="background-color: red; " class="category-buttons bg-image-cgi">
-			CGI
-		</div>
-		<div style="background-color: green;" class="category-buttons bg-image-cgi">
-			Web Apps
-		</div>
-		<div style="background-color: blue; " class="category-buttons bg-image-cgi">
-			Videos
-		</div>
-		<div style="background-color: red" class="category-buttons bg-image-cgi">
-			Websites
-		</div>
+		<a href="/work/cgi">
+			<div style="background-color: red; " class="category-buttons bg-image-cgi">
+				CGI
+			</div>
+		</a>
+		<a href="/work/webApps">
+			<div style="background-color: green;" class="category-buttons bg-image-cgi">
+				Web Apps
+			</div>
+		</a>
+		<a href="/work/videos">
+			<div style="background-color: blue; " class="category-buttons bg-image-cgi">
+				Videos
+			</div>
+		</a>
+		<a href="/work/websites">
+			<div style="background-color: red" class="category-buttons bg-image-cgi">
+				Websites
+			</div>
+		</a>
 	</div>
 </div>
 

@@ -5,7 +5,7 @@
 	<menu>
 		<position>2</position>
 		<name>Web Apps</name>
-		<key>Web Apps</key>
+		<key>WebApps</key>
 	</menu>
 	<content>
 		<group>work</group>

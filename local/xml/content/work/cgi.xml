@@ -3,7 +3,7 @@
 	<layout>oneColumn</layout>
 	<title>CGI</title>
 	<menu>
-		<position>2</position>
+		<position>1</position>
 		<name>CGI</name>
 		<key>CGI</key>
 	</menu>

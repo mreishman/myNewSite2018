@@ -3,7 +3,7 @@
 	<layout>oneColumn</layout>
 	<title>Videos</title>
 	<menu>
-		<position>2</position>
+		<position>3</position>
 		<name>Videos</name>
 		<key>Videos</key>
 	</menu>

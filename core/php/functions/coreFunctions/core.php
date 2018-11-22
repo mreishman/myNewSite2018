@@ -53,7 +53,7 @@ class core
 	public function getContent($layoutFileGen)
 	{
 		//js files
-		$listOfJsFiles = $this->generateCssLinks($layoutFileGen);
+		$listOfJsFiles = $this->generateJsLinks($layoutFileGen);
 		foreach ($listOfJsFiles as $filePath) {
 			echo "<script type=\"text/javascript\" src=\"".$filePath."\"></script>";
 		}

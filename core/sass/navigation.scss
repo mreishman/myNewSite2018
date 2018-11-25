@@ -1,0 +1,205 @@
+@import "vars.scss";
+
+#mainNavigationToggle{
+	display: none;
+}
+
+.navigationSpan{
+	display: inline-block;
+}
+
+.navigationMain{
+
+	margin-bottom: 5px;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	li {
+		float: left;
+		padding: 12px 16px;
+
+		a{
+			text-decoration: none;
+			padding: 12px 16px;
+			color: $linkColorAlt;
+		}
+
+		a:hover, .dropdown:hover .dropbtn {
+			background-color: $backgroundColorMain;
+			color: $fontColorMain;
+		}
+
+		&.dropdown {
+			display: inline-block;
+		}
+
+		ul {
+			display: none;
+			position: absolute;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			margin-top: 12px;
+			background-color: $backgroundColorAlt;
+
+			li{
+				display: block;
+				width: 100%;
+				padding: 0;
+
+				&:hover{
+					background-color: $backgroundColorMain;
+					
+					a{
+						color: $fontColorMain;
+					}
+				}
+			}
+
+			a {
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+		}
+
+		&:hover ul {
+			display: block;
+		}
+	}
+}
+
+.icon-bar-top
+{
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: $fontColorAlt;
+	margin-top: 4px;
+	-ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+    margin-top: 9px;
+}
+.icon-bar-mid
+{
+	display: none;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: $fontColorAlt;
+	margin-top: 4px;
+}
+.icon-bar-bot
+{
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: $fontColorAlt;
+	margin-top: 4px;
+	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+.icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: $fontColorAlt;
+	margin-top: 4px;
+}
+
+.mobileNavButton{
+	cursor: pointer;
+	display: none;
+	float: right;
+}
+
+.navIconChecked{
+	display: none;
+}
+
+.navIconNotChecked{
+	display: none;
+}
+
+@media only screen and (max-width : 640px) {
+
+	.navigationSpan{
+		display: block;
+	}
+
+	.navigationMain{
+
+		li {
+            width: 100%;
+            padding: 12px 16px;
+            margin: 0;
+            float: none;
+
+            a{
+            	display: block;
+            }
+
+
+            ul {
+            	display: block;
+            	position: relative;
+
+            	li {
+		            width: 100%;
+		            padding: 5px 10px;
+		            margin: 0;
+		            float: none;
+		        }
+            }
+        }
+
+	}
+
+	.mobileNavButton{
+		display: inline-block;
+		margin: 8px 8px 15px 8px;
+	}
+
+	.navIconChecked{
+		display: none;
+	}
+
+	.navIconNotChecked{
+		display: inline-block;
+	}
+
+	#mainNavigationToggle
+	{
+
+		&:checked{
+
+			& ~ .mobileNavButton{
+
+				.navIconChecked{
+					display: inline-block;
+				}
+
+				.navIconNotChecked{
+					display: none;
+				}
+			}
+
+			& ~ .navigationSpan{
+	           	display: none;
+	        }
+		}
+    }
+
+}

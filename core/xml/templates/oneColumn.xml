@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<content>
+		<group>templates</group>
+		<file>oneColumn</file>
+		<type>php</type>
+	</content>
+	<modules>
+		<header>
+			<content>
+				<group>base</group>
+				<file>header</file>
+				<type>php</type>
+			</content>
+		</header>
+		<footer>
+			<content>
+				<group>base</group>
+				<file>footer</file>
+				<type>php</type>
+			</content>
+		</footer>
+	</modules>
+	<javascriptFiles>
+	</javascriptFiles>
+	<cssFiles>
+		<cssFile>
+			<file>base.css</file>
+			<map>base.css.map</map>
+			<group></group>
+		</cssFile>
+		<cssFile>
+			<file>navigation.css</file>
+			<map>navigation.css.map</map>
+			<group></group>
+		</cssFile>
+	</cssFiles>
+</page>

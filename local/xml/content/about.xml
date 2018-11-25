@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>About!</title>
+	<menu>
+		<position>2</position>
+		<name>About</name>
+		<key>about</key>
+	</menu>
+	<content>
+		<group>about</group>
+		<file>about</file>
+		<type>html</type>
+	</content>
+</page>

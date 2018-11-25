@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Info</title>
+	<menu>
+		<position>1</position>
+		<name>Changelog</name>
+		<key>info</key>
+	</menu>
+	<content>
+		<group>about</group>
+		<file>info</file>
+		<type>html</type>
+	</content>
+</page>

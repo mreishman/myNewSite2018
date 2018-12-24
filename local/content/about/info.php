@@ -124,6 +124,13 @@
             "notes"         =>  array(
                 "Features"      =>  array("Switched code base from just using html to using php and xml","Changed up theme","Redesigned nav bar","Redesigned most pages")
             )
+        ),
+        17  =>  array(
+            "version"       =>  "3.0.1",
+            "date"          =>  "12/24/2018",
+            "notes"         =>  array(
+                "Features"      =>  array("Updated WebCoreMJR to 0.1.1","Switched galleries from local lightbox to built in lightbox")
+            )
         )
       );
       $odd = false;

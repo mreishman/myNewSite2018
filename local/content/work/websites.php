@@ -258,6 +258,42 @@
 <table width="100%">
     <tr>
         <td>
+            <h2>Portfolio 2012</h2>
+        </td>
+    </tr>
+</table>
+<div style="overflow:auto;">
+    <table width="660px"  align="left">
+        <tr>
+            <?php echo $gallery->generateGallery(
+                array(
+                    0   =>  array(
+                        "id"    =>  "2012Portfolio3",
+                        "src"   =>  "/media/img/work/websites/2012_Portfolio_3.jpg",
+                        "thumb" =>  "/media/img/work/websites/2012_Portfolio_3_Thumb.jpg"
+                    ),
+                    1   =>  array(
+                        "id"    =>  "2012Portfolio2",
+                        "src"   =>  "/media/img/work/websites/2012_Portfolio_2.jpg",
+                        "thumb" =>  "/media/img/work/websites/2012_Portfolio_2_Thumb.jpg"
+                    ),
+                    2   =>  array(
+                        "id"    =>  "2012Portfolio1",
+                        "src"   =>  "/media/img/work/websites/2012_Portfolio_1.jpg",
+                        "thumb" =>  "/media/img/work/websites/2012_Portfolio_1_Thumb.jpg"
+                    )
+                ),
+                array(
+                    "imgHeight" =>  "157",
+                    "tag"       =>  "th"
+                )
+            ); ?>
+        </tr>
+    </table>
+</div>
+<table width="100%">
+    <tr>
+        <td>
            <a href="/about/info" >Click here to view the changelog of the current website</a>
         </td>
     </tr>

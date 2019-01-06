@@ -2,6 +2,11 @@
 <page>
 	<layout>oneColumn</layout>
 	<title>Changelog</title>
+	<menu>
+		<position>0</position>
+		<name>Changelog</name>
+		<key>changelog</key>
+	</menu>
 	<content>
 		<group>about</group>
 		<file>info</file>

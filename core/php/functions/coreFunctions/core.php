@@ -74,7 +74,8 @@ class core
 			{
 				$arrayOfFiles[$entireFileOrDir] = array(
 					"fileName"			=>	$fileOrDir,
-					"fileNamePlusPath"	=>	$addedDir."/".$fileOrDir
+					"fileNamePlusPath"	=>	$addedDir."/".$fileOrDir,
+					"path"				=>	$addedDir
 				);
 			}
 		}

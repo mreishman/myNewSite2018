@@ -2,6 +2,11 @@
 
 class gallery 
 {
+	private function getDefaultId($data)
+	{
+		return preg_replace('/[^a-z0-9]+/', '_', strtolower($data["src"]));
+	}
+
 	public function generateGallery($arrayOfImages, $config = array())
 	{
 		$htmlToReturn = "";
@@ -68,8 +73,13 @@ class gallery
 				$htmlToReturn .= "
 			";
 			}
+			$id = $this->getDefaultId($value);
+			if(isset($value["id"]))
+			{
+				$id = $value["id"];
+			}
 			$htmlToReturn .= "<".$tag.">";
-			$link = "#".$value["id"];
+			$link = "#".$id;
 			$image = $value["src"];
 			$thumb = $value["src"];
 			if(isset($value["link"]))
@@ -80,14 +90,19 @@ class gallery
 			{
 				$thumb = $value["thumb"];
 			}
+			$target = "";
+			if(isset($value["target"]))
+			{
+				$target = " target=\"".$value["target"]."\"";
+			}
 			$htmlToReturn .= 	"
-				<a href=\"".$link."\" >
+				<a href=\"".$link."\"".$target.">
 					<img src=\"".$thumb."\" width=\"".$imgWidth."\" height=\"".$imgHeight."\" >
 				</a>";
-			if($link === "#".$value["id"])
+			if($link === "#".$id)
 			{
 				$htmlToReturn .= "
-				<span class=\"lightbox\"  id=\"".$value["id"]."\">
+				<span class=\"lightbox\"  id=\"".$id."\">
 					<span class=\"lightboxForeground\">
 						<a href=\"#_\" class=\"lightboxClose	\" >
 							<span class=\"lightbox-icon-bar-top\"></span>
@@ -96,14 +111,14 @@ class gallery
 				if($arrows && $arrayOfImagesCounter !== 0)
 				{
 					$htmlToReturn .= "
-						<a href=\"#".$arrayOfImagesGen[$arrayOfImagesCounter-1]["id"]."\" class=\"arrow left lightboxLeft\" ></a>";
+						<a href=\"#".$this->getDefaultId($arrayOfImagesGen[$arrayOfImagesCounter-1])."\" class=\"arrow left lightboxLeft\" ></a>";
 				}
 				$htmlToReturn .= "
 						<img src=\"".$image."\">";
 				if($arrows && ($arrayOfImagesCounter + 1) < $arrayOfImagesCount)
 				{
 					$htmlToReturn .= "
-						<a href=\"#".$arrayOfImagesGen[($arrayOfImagesCounter+1)]["id"]."\" class=\"arrow right lightboxRight\" ></a>";
+						<a href=\"#".$this->getDefaultId($arrayOfImagesGen[$arrayOfImagesCounter+1])."\" class=\"arrow right lightboxRight\" ></a>";
 				}
 				if($galleryThumbs)
 				{
@@ -117,8 +132,13 @@ class gallery
 							{
 								break;
 							}
+							$id = $this->getDefaultId($value2);
+							if(isset($value2["id"]))
+							{
+								$id = $value2["id"];
+							}
 							$thumb2 = $value2["src"];
-							$link2 = "#".$value2["id"];
+							$link2 = "#".$id;
 							if(isset($value2["thumb"]))
 							{
 								$thumb2 = $value2["thumb"];
@@ -149,8 +169,13 @@ class gallery
 							{
 								continue;
 							}
+							$id = $this->getDefaultId($value2);
+							if(isset($value2["id"]))
+							{
+								$id = $value2["id"];
+							}
 							$thumb2 = $value2["src"];
-							$link2 = "#".$value2["id"];
+							$link2 = "#".$id;
 							if(isset($value2["thumb"]))
 							{
 								$thumb2 = $value2["thumb"];

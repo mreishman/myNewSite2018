@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
 	<layout>oneColumn</layout>
-	<title>Videos</title>
+	<title>Sitemap</title>
 	<menu>
-		<position>3</position>
-		<name>Videos</name>
-		<key>Videos</key>
+		<position>-1</position>
+		<name>Sitemap</name>
+		<key>sitemap</key>
 	</menu>
 	<content>
-		<group>work</group>
-		<file>videos</file>
+		<group>base</group>
+		<file>sitemap</file>
 		<type>php</type>
 	</content>
 </page>

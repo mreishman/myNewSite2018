@@ -4,6 +4,10 @@ class gallery
 {
 	private function getDefaultId($data)
 	{
+		if(isset($data["id"]))
+		{
+			return $data["id"];
+		}
 		return preg_replace('/[^a-z0-9]+/', '_', strtolower($data["src"]));
 	}
 
@@ -74,10 +78,6 @@ class gallery
 			";
 			}
 			$id = $this->getDefaultId($value);
-			if(isset($value["id"]))
-			{
-				$id = $value["id"];
-			}
 			$htmlToReturn .= "<".$tag.">";
 			$link = "#".$id;
 			$image = $value["src"];
@@ -170,10 +170,6 @@ class gallery
 								continue;
 							}
 							$id = $this->getDefaultId($value2);
-							if(isset($value2["id"]))
-							{
-								$id = $value2["id"];
-							}
 							$thumb2 = $value2["src"];
 							$link2 = "#".$id;
 							if(isset($value2["thumb"]))

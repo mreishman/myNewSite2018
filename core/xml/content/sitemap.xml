@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<layout>oneColumn</layout>
+	<title>Sitemap</title>
+	<menu>
+		<position>-1</position>
+		<name>Sitemap</name>
+		<key>sitemap</key>
+	</menu>
+	<content>
+		<group>base</group>
+		<file>sitemap</file>
+		<type>php</type>
+	</content>
+</page>

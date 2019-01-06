@@ -131,6 +131,13 @@
             "notes"         =>  array(
                 "Features"      =>  array("Updated WebCoreMJR to 0.1.1","Switched galleries from local lightbox to built in lightbox")
             )
+        ),
+        18  =>  array(
+            "version"       =>  "3.0.2",
+            "date"          =>  "1/6/2019",
+            "notes"         =>  array(
+                "Features"      =>  array("Updated WebCoreMJR to 0.1.2")
+            )
         )
       );
       $odd = false;

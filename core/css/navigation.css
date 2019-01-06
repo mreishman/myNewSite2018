@@ -24,7 +24,11 @@
   padding: 12px 16px;
   color: #333;
 }
-.navigationMain li a:hover, .navigationMain li .dropdown:hover .dropbtn {
+.navigationMain li a:hover, .navigationMain li a.active {
+  background-color: #444;
+  color: #CCC;
+}
+.navigationMain li .dropdown:hover .dropbtn {
   background-color: #444;
   color: #CCC;
 }
@@ -121,6 +125,10 @@
 
 .navIconNotChecked {
   display: none;
+}
+
+.noLink {
+  cursor: default;
 }
 
 @media only screen and (max-width: 640px) {

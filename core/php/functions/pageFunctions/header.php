@@ -53,6 +53,16 @@ class header
 
 	public function generateNavigationArray()
 	{
+		return $this->generateNavigationArrayWithParams(0);
+	}
+
+	public function generateSitemap()
+	{
+		return $this->generateNavigationArrayWithParams(-1);
+	}
+
+	private function generateNavigationArrayWithParams($minCurrent)
+	{
 		$currentDir = realpath(__DIR__ . '/../../../..')."/";
 		$xmlDir = $currentDir."core/xml/content/";
 		if(is_dir($currentDir."local/xml/content/"))
@@ -66,11 +76,22 @@ class header
 			$arrayOfFiles[$currentFileKey]["position"] = intval($xmlLayout->menu->position);
 			$arrayOfFiles[$currentFileKey]["name"] = (string)$xmlLayout->menu->name;
 			$arrayOfFiles[$currentFileKey]["key"] = (string)$xmlLayout->menu->key;
+			$current = 0;
+			$currentURI = "$_SERVER[REQUEST_URI]";
+			if("$_SERVER[REQUEST_URI]" === "/")
+			{
+				$currentURI = "/home";
+			}
+			if($currentURI === explode(".xml", $arrayOfFiles[$currentFileKey]["fileNamePlusPath"])[0])
+			{
+				$current = 1;
+			}
+			$arrayOfFiles[$currentFileKey]["current"] = $current;
 		}
 		$newNavArray = array();
 		foreach ($arrayOfFiles as $AOFvalue)
 		{
-			if($AOFvalue["position"] === 0)
+			if($AOFvalue["position"] <= $minCurrent)
 			{
 				continue; //skip if position is 0
 			}
@@ -89,21 +110,94 @@ class header
 		return $newNavArray;
 	}
 
+	private function findIfSubCurrent($files)
+	{
+		foreach ($files as $name => $file)
+		{
+			if(isset($file["files"]))
+			{
+				if(!empty($file["files"]) && $this->findIfSubCurrent($file["files"]))
+				{
+					return true;
+				}
+			}
+			if($file["current"] === 1)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public function generateNavUL($navArray, $htmlToReturn = "")
 	{
 		$htmlToReturn .= "<ul>";
 		foreach ($navArray as $key => $value)
 		{
+			$classText = "";
+			$addClassText = false;
 			if(isset($value["files"]))
 			{
 				if(!empty($value["files"]))
 				{
-					$htmlToReturn .= "<li><a href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\" >".$value["name"]."</a>".$this->generateNavUl($value["files"])."</li>";
+					$current = $this->findIfSubCurrent($value["files"]);
+					$classToAdd = " class=\"";
+					if($current || (isset($value["current"]) && $value["current"] === 1))
+					{
+						$classToAdd .= " active ";
+						$addClassText = true;
+					}
+					$linkForAtag = "";
+					if(isset($value["fileNamePlusPath"]))
+					{
+						$linkForAtag = " href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\""; 
+					}
+					else
+					{
+						$classToAdd .= " noLink ";
+						$addClassText = true;
+					}
+					$name = "";
+					if(isset($value["name"]))
+					{
+						$name = $value["name"];
+					}
+					else
+					{
+						//no name set, grab from folder
+						foreach ($value["files"] as $file)
+						{
+							$name = $file["path"];
+							if(strpos($name, "/") === 0)
+							{
+								$name = ltrim($name, '/');
+							}
+							$name = ucfirst($name);
+							break;
+						}
+					}
+					$classToAdd .= " \"";
+					if($addClassText)
+					{
+						$classText = $classToAdd;
+					}
+					$htmlToReturn .= "<li><a ".$classText." ".$linkForAtag.">".$name."</a>".$this->generateNavUL($value["files"])."</li>";
 				}
 			}
 			else
 			{
-				$htmlToReturn .= "<li><a href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\" >".$value["name"]."</a></li>";
+				$classToAdd = " class=\"";
+				if($value["current"] === 1)
+				{
+					$classToAdd .= " active ";
+					$addClassText = true;
+				}
+				$classToAdd .= " \"";
+				if($addClassText)
+				{
+					$classText = $classToAdd;
+				}
+				$htmlToReturn .= "<li><a ".$classText." href=\"".explode(".xml", $value["fileNamePlusPath"])[0]."\" >".$value["name"]."</a></li>";
 			}
 		}
 		$htmlToReturn .= "</ul>";

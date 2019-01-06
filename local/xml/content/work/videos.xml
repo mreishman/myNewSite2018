@@ -10,6 +10,6 @@
 	<content>
 		<group>work</group>
 		<file>videos</file>
-		<type>html</type>
+		<type>php</type>
 	</content>
 </page>

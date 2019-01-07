@@ -225,40 +225,7 @@
 <table width="100%">
     <tr>
         <td>
-            <h2>Anime Party 2013</h2>
-        </td>
-    </tr>
-</table>
-<div style="overflow:auto;">
-    <table width="660px"  align="left">
-        <tr>
-            <?php echo $gallery->generateGallery(
-                array(
-                    0   =>  array(
-                        "id"    =>  "AnimeParty2013v1",
-                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_1.jpg"
-                    ),
-                    1   =>  array(
-                        "id"    =>  "AnimeParty2013v2",
-                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_2.jpg"
-                    ),
-                    2   =>  array(
-                        "id"    =>  "AnimeParty2013v3",
-                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_3.jpg"
-                    )
-                ),
-                array(
-                    "imgHeight" =>  "157",
-                    "tag"       =>  "th"
-                )
-            ); ?>
-        </tr>
-    </table>
-</div>
-<table width="100%">
-    <tr>
-        <td>
-            <h2>Portfolio 2012</h2>
+            <h2>Portfolio 2014</h2>
         </td>
     </tr>
 </table>
@@ -281,6 +248,39 @@
                         "id"    =>  "2012Portfolio1",
                         "src"   =>  "/media/img/work/websites/2012_Portfolio_1.jpg",
                         "thumb" =>  "/media/img/work/websites/2012_Portfolio_1_Thumb.jpg"
+                    )
+                ),
+                array(
+                    "imgHeight" =>  "157",
+                    "tag"       =>  "th"
+                )
+            ); ?>
+        </tr>
+    </table>
+</div>
+<table width="100%">
+    <tr>
+        <td>
+            <h2>Anime Party 2013</h2>
+        </td>
+    </tr>
+</table>
+<div style="overflow:auto;">
+    <table width="660px"  align="left">
+        <tr>
+            <?php echo $gallery->generateGallery(
+                array(
+                    0   =>  array(
+                        "id"    =>  "AnimeParty2013v1",
+                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_1.jpg"
+                    ),
+                    1   =>  array(
+                        "id"    =>  "AnimeParty2013v2",
+                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_2.jpg"
+                    ),
+                    2   =>  array(
+                        "id"    =>  "AnimeParty2013v3",
+                        "src"   =>  "/media/img/work/websites/2013_Anime_Party_3.jpg"
                     )
                 ),
                 array(

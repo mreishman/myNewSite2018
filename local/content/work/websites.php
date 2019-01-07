@@ -101,10 +101,6 @@
                     3   =>  array(
                         "id"    =>  "AnimeParty2015v4",
                         "src"   =>  "/media/img/work/websites/2015_Anime_Party_4.jpg"
-                    ),
-                    4   =>  array(
-                        "id"    =>  "PBL2015v5",
-                        "src"   =>  "/media/img/work/websites/2015_PBL_5.jpg"
                     )
                 ),
                 array(

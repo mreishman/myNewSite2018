@@ -146,11 +146,11 @@
                 "Bug Fixes"      =>  array("Updated WebCoreMJR to 0.1.2.1","Updated some gallery images")
             )
         ),
-        19  =>  array(
+        20  =>  array(
             "version"       =>  "3.0.2.2",
             "date"          =>  "1/12/2019",
             "notes"         =>  array(
-                "Bug Fixes"      =>  array("General Content Update")
+                "Content Update"      =>  array("Added link to WebCoreMJR","Added changelog link in footer","Updated social media links","Added old 2014 portfolio to gallery")
             )
         )
       );

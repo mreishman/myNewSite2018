@@ -1,11 +1,11 @@
 <div id="mainText">
 <h1 align="center"> Changelog </h1>
   <table style="width:100%; max-width:1200px;" align="center" id="normalFont">
-		<tr>
-			<th width="100"><h2>Version</h2></th>
-			<th width="120"><h2>Date of change</h2></th>
-			<th ><h2>Notes</h2></th>
-		</tr>
+        <tr>
+            <th width="100"><h2>Version</h2></th>
+            <th width="120"><h2>Date of change</h2></th>
+            <th ><h2>Notes</h2></th>
+        </tr>
 
       <?php
       $changelogArr = array(
@@ -154,8 +154,8 @@
             )
         ),
         21  =>  array(
-            "version"       =>  "3.1",
-            "date"          =>  "-/--/2019",
+            "version"       =>  "3.0.3",
+            "date"          =>  "2/17/2019",
             "notes"         =>  array(
                 "Features"      =>  array("Updated WebCoreMJR to 0.2")
             )

@@ -3,11 +3,11 @@
 class header
 {
 
-	private $data;
+	private $core;
 
 	public function __construct()
 	{
-		$this->data = new Data();
+		$this->core = new Core();
 	}
 
 	public function loadDirFilesRec($directory, $arrayOfFiles = array(), $addedDir = "")
@@ -185,7 +185,7 @@ class header
 
 	public function generateNavUL($navArray, $htmlToReturn = "")
 	{
-		$baseUrl = $this->data->getValue("baseUrl");
+		$baseUrl = $this->core->getValue("baseUrl");
 		$htmlToReturn .= "<ul>";
 		foreach ($navArray as $key => $value)
 		{
@@ -263,7 +263,7 @@ class header
 	{
 		//@TODO add grid / list view options
 		//@TODO add more than one layer support
-		$baseUrl = $this->data->getValue("baseUrl");
+		$baseUrl = $this->core->getValue("baseUrl");
 		$htmlToReturn .= "<ul>";
 		foreach ($navArray as $key => $value)
 		{

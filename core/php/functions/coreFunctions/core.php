@@ -1,6 +1,35 @@
 <?php
 class core
 {
+
+	private $defaultConfig;
+	private $customConfig;
+
+	public function __construct()
+	{
+		$currentDir = realpath(__DIR__ . '/../../../..')."/";
+		$this->customConfig = new SimpleXMLElement("<config></config>");
+		if(file_exists($currentDir."local/xml/config.xml"))
+		{
+			$this->customConfig = simplexml_load_file($currentDir."local/xml/config.xml");
+		}
+
+		$this->defaultConfig = simplexml_load_file($currentDir."core/xml/config.xml");
+	}
+
+	public function getValue($key)
+	{
+		return $this->getSetting(
+			$this->customConfig, 
+			$key,
+			$this->getSetting(
+				$this->defaultConfig, 
+				$key,
+				false
+			)
+		);
+	}
+
 	private function getFile($fileLookFor, $default = false)
 	{
 		$currentDir = realpath(__DIR__ . '/../../../..')."/";
@@ -73,7 +102,7 @@ class core
 			echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/".$fileData["fileName"]."?v=".$fileData["time"]."\">";
 		}
 		//return main file path
-		return $this->getFile("content/".$layoutFileGen->$contentType->group."/".$layoutFileGen->$contentType->file.".".$layoutFileGen->$contentType->type,"content/base/404.html");
+		return $this->getFile("content/".$layoutFileGen->$contentType->group."/".$layoutFileGen->$contentType->file.".".$layoutFileGen->$contentType->type,$this->getValue("defaultContentXml"));
 	}
 
 	public function generateCssLinks($layoutFileGen)

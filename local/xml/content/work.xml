@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<layout>oneColumn</layout>
+	<layout>base/oneColumn</layout>
 	<title>Work</title>
 	<menu>
 		<position>3</position>
@@ -8,8 +8,8 @@
 		<key>work</key>
 	</menu>
 	<content>
-		<group>work</group>
-		<file>work</file>
-		<type>html</type>
+		<group>base</group>
+		<file>pageNavigation</file>
+		<type>php</type>
 	</content>
 </page>

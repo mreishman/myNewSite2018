@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<content>
+		<group>base</group>
+		<file>header</file>
+		<type>php</type>
+	</content>
+	<cssFiles>
+		<cssFile>
+			<file>navigation.css</file>
+			<map>navigation.css.map</map>
+			<group></group>
+		</cssFile>
+	</cssFiles>
+	<settings>
+		<body>
+			<module>
+				<header>
+					<mobileNavPosition>right</mobileNavPosition>
+				</header>
+			</module>
+		</body>
+	</settings>
+</page>

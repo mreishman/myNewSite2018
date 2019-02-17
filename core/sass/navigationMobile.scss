@@ -5,7 +5,13 @@
 }
 
 .navigationSpan{
-	display: inline-block;
+	display: block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+	background-color: $backgroundColorAlt;
+	z-index: 99;
 }
 
 .navigationMain{
@@ -20,13 +26,16 @@
 	}
 
 	li {
-		float: left;
-		padding: 12px 16px;
+		width: 100%;
+        padding: 12px 16px;
+        margin: 0;
+        float: none;
 
 		a{
 			text-decoration: none;
 			padding: 12px 16px;
 			color: $linkColorAlt;
+			display: block;
 
 			&:hover, &.active {
 				background-color: $backgroundColorMain;
@@ -44,8 +53,8 @@
 		}
 
 		ul {
-			display: none;
-			position: absolute;
+			display: block;
+			position: relative;
 			min-width: 160px;
 			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 			z-index: 1;
@@ -55,7 +64,9 @@
 			li{
 				display: block;
 				width: 100%;
-				padding: 0;
+	            padding: 5px 10px;
+	            margin: 0;
+	            float: none;
 
 				&:hover{
 					background-color: $backgroundColorMain;
@@ -126,8 +137,9 @@
 
 .mobileNavButton{
 	cursor: pointer;
-	display: none;
 	float: right;
+	display: inline-block;
+	margin: 8px 8px 15px 8px;
 }
 
 .navIconChecked{
@@ -142,73 +154,32 @@
 	cursor: default;
 }
 
-@media only screen and (max-width : $mobileWidth) {
+.navIconChecked{
+	display: none;
+}
 
-	.navigationSpan{
-		display: block;
-	}
+.navIconNotChecked{
+	display: inline-block;
+}
 
-	.navigationMain{
+#mainNavigationToggle
+{
 
-		li {
-            width: 100%;
-            padding: 12px 16px;
-            margin: 0;
-            float: none;
+	&:checked{
 
-            a{
-            	display: block;
-            }
+		& ~ .mobileNavButton{
 
-
-            ul {
-            	display: block;
-            	position: relative;
-
-            	li {
-		            width: 100%;
-		            padding: 5px 10px;
-		            margin: 0;
-		            float: none;
-		        }
-            }
-        }
-
-	}
-
-	.mobileNavButton{
-		display: inline-block;
-		margin: 8px 8px 15px 8px;
-	}
-
-	.navIconChecked{
-		display: none;
-	}
-
-	.navIconNotChecked{
-		display: inline-block;
-	}
-
-	#mainNavigationToggle
-	{
-
-		&:checked{
-
-			& ~ .mobileNavButton{
-
-				.navIconChecked{
-					display: inline-block;
-				}
-
-				.navIconNotChecked{
-					display: none;
-				}
+			.navIconChecked{
+				display: inline-block;
 			}
 
-			& ~ .navigationSpan{
-	           	display: none;
-	        }
+			.navIconNotChecked{
+				display: none;
+			}
 		}
-    }
 
+		& ~ .navigationSpan{
+           	display: none;
+        }
+	}
 }

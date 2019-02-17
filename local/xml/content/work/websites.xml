@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<layout>oneColumn</layout>
+	<layout>base/oneColumn</layout>
 	<title>Websites</title>
 	<menu>
 		<position>4</position>
 		<name>Websites</name>
 		<key>Websites</key>
+		<description>Websites that I have either built for myself, or the clubs that I was in.</description>
+		<image>/media/img/work/websites/2015_Portfolio_1.jpg</image>
 	</menu>
 	<content>
 		<group>work</group>
 		<file>websites</file>
 		<type>php</type>
 	</content>
+	<cssFiles>
+		<cssFile>
+			<file>lightbox.css</file>
+			<map></map>
+			<group></group>
+		</cssFile>
+	</cssFiles>
 </page>

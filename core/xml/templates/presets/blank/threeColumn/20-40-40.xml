@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<content>
+		<group>templates</group>
+		<file>threeColumn</file>
+		<type>php</type>
+	</content>
+	<modules>
+		<header>
+			<module>
+				<name>header</name>
+				<enabled>true</enabled>
+			</module>
+		</header>
+		<footer>
+			<module>
+				<name>footer</name>
+				<enabled>true</enabled>
+			</module>
+		</footer>
+	</modules>
+	<javascriptFiles>
+	</javascriptFiles>
+	<cssFiles>
+		<cssFile>
+			<file>base.css</file>
+			<map>base.css.map</map>
+			<group></group>
+		</cssFile>
+	</cssFiles>
+	<settings>
+		<body>
+			<mainContent>
+				<content>
+					<columnWidth>20</columnWidth>
+				</content>
+				<contentTwo>
+					<columnWidth>40</columnWidth>
+				</contentTwo>
+				<contentThree>
+					<columnWidth>40</columnWidth>
+				</contentThree>
+			</mainContent>
+		</body>	
+	</settings>
+</page>

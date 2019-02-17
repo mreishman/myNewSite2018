@@ -152,6 +152,13 @@
             "notes"         =>  array(
                 "Content Update"      =>  array("Added link to WebCoreMJR","Added changelog link in footer","Updated social media links","Added old 2014 portfolio to gallery")
             )
+        ),
+        21  =>  array(
+            "version"       =>  "3.1",
+            "date"          =>  "-/--/2019",
+            "notes"         =>  array(
+                "Features"      =>  array("Updated WebCoreMJR to 0.2")
+            )
         )
       );
       $odd = false;

@@ -1,0 +1,164 @@
+#mainNavigationToggle {
+  display: none;
+}
+
+.navigationSpan {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: #CCC;
+  z-index: 99;
+}
+
+.navigationMain {
+  margin-bottom: 5px;
+}
+.navigationMain ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navigationMain li {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 0;
+  float: none;
+}
+.navigationMain li a {
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #333;
+  display: block;
+}
+.navigationMain li a:hover, .navigationMain li a.active {
+  background-color: #444;
+  color: #CCC;
+}
+.navigationMain li .dropdown:hover .dropbtn {
+  background-color: #444;
+  color: #CCC;
+}
+.navigationMain li.dropdown {
+  display: inline-block;
+}
+.navigationMain li ul {
+  display: block;
+  position: relative;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 12px;
+  background-color: #CCC;
+}
+.navigationMain li ul li {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  margin: 0;
+  float: none;
+}
+.navigationMain li ul li:hover {
+  background-color: #444;
+}
+.navigationMain li ul li:hover a {
+  color: #CCC;
+}
+.navigationMain li ul a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.navigationMain li:hover ul {
+  display: block;
+}
+
+.icon-bar-top {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+  -ms-transform: rotate(-45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-45deg);
+  margin-top: 9px;
+}
+
+.icon-bar-mid {
+  display: none;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+}
+
+.icon-bar-bot {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #333;
+  margin-top: 4px;
+}
+
+.mobileNavButton {
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+  margin: 8px 8px 15px 8px;
+}
+
+.navIconChecked {
+  display: none;
+}
+
+.navIconNotChecked {
+  display: none;
+}
+
+.noLink {
+  cursor: default;
+}
+
+.navIconChecked {
+  display: none;
+}
+
+.navIconNotChecked {
+  display: inline-block;
+}
+
+#mainNavigationToggle:checked ~ .mobileNavButton .navIconChecked {
+  display: inline-block;
+}
+#mainNavigationToggle:checked ~ .mobileNavButton .navIconNotChecked {
+  display: none;
+}
+#mainNavigationToggle:checked ~ .navigationSpan {
+  display: none;
+}
+
+/*# sourceMappingURL=navigationMobile.css.map */

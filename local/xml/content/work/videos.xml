@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<layout>oneColumn</layout>
+	<layout>base/oneColumn</layout>
 	<title>Videos</title>
 	<menu>
 		<position>3</position>
 		<name>Videos</name>
 		<key>Videos</key>
+		<description>Videos that I have made. This includes timelapse videos, animations and club related videos.</description>
+		<image>/media/img/work/videoThumb/ArchAcadComp.jpg</image>
 	</menu>
 	<content>
 		<group>work</group>

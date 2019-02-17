@@ -142,7 +142,7 @@
 	cursor: default;
 }
 
-@media only screen and (max-width : 640px) {
+@media only screen and (max-width : $mobileWidth) {
 
 	.navigationSpan{
 		display: block;

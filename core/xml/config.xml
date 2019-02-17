@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<general>
+		<baseUrl></baseUrl>
+		<defaultPageXml>core/xml/errors/404.xml</defaultPageXml>
+		<defaultContentXml>content/base/404.html</defaultContentXml>
+	</general>
+</config>

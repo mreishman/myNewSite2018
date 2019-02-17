@@ -6,10 +6,38 @@
 		<link rel="shortcut icon" type="image/png" href="/media/img/main/favicon.png"/>
 	</head>
 	<body>
-		<?php require_once($core->getModule($layoutFileGen,"header")); ?>
+		<?php
+			$headerModules = $core->getModules($layoutFileGen,"header");
+			foreach ($headerModules as $module)
+			{
+				require_once($module["file"]);
+			}
+		?>
 		<div class="mainContent" >
-			<?php require_once($core->getContent($baseXmlGen)); ?>
+			<!-- Default content -->
+			<?php
+				$contentType 		= (string)$core->getSetting(
+					array($baseXmlGen, $layoutFileGen),
+					array("settings","body","mainContent","content","type"),
+					"custom");
+				if($contentType !== "custom")
+				{
+					$module = $core->getModule(array($baseXmlGen, $layoutFileGen), $contentType);
+					require_once($module["file"]);
+				}
+				else
+				{
+					include($core->getContent($baseXmlGen));
+						
+				}
+			?>
 		</div>
-		<?php require_once($core->getModule($layoutFileGen,"footer")); ?>
+		<?php
+			$headerModules = $core->getModules($layoutFileGen,"footer");
+			foreach ($headerModules as $module)
+			{
+				require_once($module["file"]);
+			}
+		?>
 	</body>
 </html>

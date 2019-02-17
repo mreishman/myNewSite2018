@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<layout>oneColumn</layout>
+	<layout>base/oneColumn</layout>
 	<title>CGI</title>
 	<menu>
 		<position>1</position>
 		<name>CGI</name>
 		<key>CGI</key>
+		<description>Computer generated images, mainly pictures created in Blender or Photoshop.</description>
+		<image>/media/img/work/images/Piano_Thumb_2.jpg</image>
 	</menu>
 	<content>
 		<group>work</group>
 		<file>cgi</file>
 		<type>php</type>
 	</content>
+	<cssFiles>
+		<cssFile>
+			<file>lightbox.css</file>
+			<map></map>
+			<group></group>
+		</cssFile>
+	</cssFiles>
 </page>

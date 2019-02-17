@@ -1,6 +1,35 @@
 <?php
 class core
 {
+
+	private $defaultConfig;
+	private $customConfig;
+
+	public function __construct()
+	{
+		$currentDir = realpath(__DIR__ . '/../../../..')."/";
+		$this->customConfig = new SimpleXMLElement("<config></config>");
+		if(file_exists($currentDir."local/xml/config.xml"))
+		{
+			$this->customConfig = simplexml_load_file($currentDir."local/xml/config.xml");
+		}
+
+		$this->defaultConfig = simplexml_load_file($currentDir."core/xml/config.xml");
+	}
+
+	public function getValue($key)
+	{
+		return $this->getSetting(
+			$this->customConfig, 
+			$key,
+			$this->getSetting(
+				$this->defaultConfig, 
+				$key,
+				false
+			)
+		);
+	}
+
 	private function getFile($fileLookFor, $default = false)
 	{
 		$currentDir = realpath(__DIR__ . '/../../../..')."/";
@@ -60,29 +89,7 @@ class core
 			);
 	}
 
-	public function loadDirFilesRec($directory, $arrayOfFiles = array(), $addedDir = "")
-	{
-		$fileList = array_diff(scandir($directory), array('..', '.'));
-		foreach ($fileList as $fileOrDir)
-		{
-			$entireFileOrDir = $directory."/".$fileOrDir;
-			if(is_dir($entireFileOrDir))
-			{
-				$arrayOfFiles = $this->loadDirFilesRec($entireFileOrDir, $arrayOfFiles, $addedDir."/".$fileOrDir);
-			}
-			elseif(is_file($entireFileOrDir) && strpos($fileOrDir, "._") !== 0)
-			{
-				$arrayOfFiles[$entireFileOrDir] = array(
-					"fileName"			=>	$fileOrDir,
-					"fileNamePlusPath"	=>	$addedDir."/".$fileOrDir,
-					"path"				=>	$addedDir
-				);
-			}
-		}
-		return $arrayOfFiles;
-	}
-
-	public function getContent($layoutFileGen)
+	public function getContent($layoutFileGen, $contentType = "content")
 	{
 		//js files
 		$listOfJsFiles = $this->generateJsLinks($layoutFileGen);
@@ -95,7 +102,7 @@ class core
 			echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/".$fileData["fileName"]."?v=".$fileData["time"]."\">";
 		}
 		//return main file path
-		return $this->getFile("content/".$layoutFileGen->content->group."/".$layoutFileGen->content->file.".".$layoutFileGen->content->type,"content/base/404.html");
+		return $this->getFile("content/".$layoutFileGen->$contentType->group."/".$layoutFileGen->$contentType->file.".".$layoutFileGen->$contentType->type,$this->getValue("defaultContentXml"));
 	}
 
 	public function generateCssLinks($layoutFileGen)
@@ -133,9 +140,62 @@ class core
 		return simplexml_load_file($this->getFile("xml/".$page.".xml", $default));
 	}
 
-	public function getModule($layoutFileGen, $module)
+	public function getModule($layoutFileGenArr, $module)
 	{
-		return $this->getFile("content/".$layoutFileGen->modules->$module->content->group."/".$layoutFileGen->modules->$module->content->file.".".$layoutFileGen->modules->$module->content->type);
+		if(gettype($layoutFileGenArr) !== "array")
+		{
+			$layoutFileGenArr = array($layoutFileGenArr);
+		}
+		foreach ($layoutFileGenArr as $layoutFileGen)
+		{
+			//go through all modules, get just one
+			$modules = $layoutFileGen->modules;
+			foreach ($modules as $modGroup)
+			{
+				foreach ($modGroup as $mod)
+				{
+					$modName = (string)$mod->module->name;
+					if($modName !== $module)
+					{
+						continue;
+					}
+					if((string)$mod->module->enabled === "false")
+					{
+						return false;
+					}
+					$modXml = $this->getModuleXml($modName);
+					return array(
+						"file"		=> $this->getContent($modXml),
+						"moreInfo"	=> $modXml
+					); 
+				}
+			}
+		}
+		return false;
+	}
+
+	public function getModules($layoutFileGen, $moduleGroup)
+	{
+		$modules = $layoutFileGen->modules->$moduleGroup;
+		$arrayOfFiles = array();
+		foreach ($modules as $mod)
+		{
+			if((string)$mod->module->enabled === "false")
+			{
+				continue;
+			}
+			$modXml = $this->getModuleXml($mod->module->name);
+			$arrayOfFiles[(string)$mod->module->name] = array(
+				"file"		=> $this->getContent($modXml),
+				"moreInfo"	=> $modXml
+			); 
+		}
+		return $arrayOfFiles;
+	}
+
+	public function getModuleXml($module)
+	{
+		return simplexml_load_file($this->getFile("modules/".$module."/layout.xml"));
 	}
 
 	public function getPageXml($page, $default = false)
@@ -146,5 +206,36 @@ class core
 	public function getTemplateXml($page, $default = false)
 	{
 		return simplexml_load_file($this->getFile("xml/templates/".$page.".xml", $default));
+	}
+
+	public function ifCheckArray($object, $array)
+	{
+		if(!is_array($array))
+		{
+			$array = array($array);
+		}
+		foreach ($array as $value)
+		{
+			$testObj = $object->$value;
+			if(gettype($testObj) !== "object")
+			{
+				return null;
+			}
+			$object = $testObj;
+		}
+		return $object;
+	}
+
+	public function getSetting($arrOfObjects, $settingPath, $default)
+	{
+		foreach ($arrOfObjects as $xmlObjectCheck)
+		{
+			$value = $this->ifCheckArray($xmlObjectCheck, $settingPath);
+			if($value !== null)
+			{
+				return $value;
+			}
+		}
+		return $default;
 	}
 }
